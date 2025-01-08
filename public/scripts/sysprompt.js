@@ -1,3 +1,5 @@
+import { Fuse } from '../lib.js';
+
 import { saveSettingsDebounced } from '../script.js';
 import { callGenericPopup, POPUP_TYPE } from './popup.js';
 import { power_user } from './power-user.js';
@@ -143,7 +145,7 @@ function selectSystemPromptCallback(args, name) {
         foundName = result[0].item;
     }
 
-    $select.val(foundName).trigger('input');
+    $select.val(foundName).trigger('change');
     !quiet && toastr.success(`System prompt "${foundName}" selected`);
     return foundName;
 }
